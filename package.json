@@ -1,0 +1,27 @@
+{
+  "name": "crash-node-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js -e ejs,js,css,html,jpg,png,scss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elcuco/crash-node-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elcuco/crash-node-server/issues"
+  },
+  "homepage": "https://github.com/elcuco/crash-node-server#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "nodaemon": "0.0.5",
+    "nodemon": "^2.0.7"
+  }
+}
