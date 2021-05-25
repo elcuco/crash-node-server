@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <h1>List of available crashes</h1>
+    
+    <ul>
+      <% files.forEach(function(file) { %>
+        <li>
+            <a href="/api/read/<%= file %>"><%= file %></a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

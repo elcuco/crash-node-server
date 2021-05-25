@@ -5,7 +5,20 @@ var fs = require('fs');
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-  res.render('pages/index');
+    fs.readdir("logs/", (err, files) => {
+        res.render('pages/index', {files: files});
+    });
+});
+
+app.get('/api/read/:crash_id', function(req, res) {
+    fs.readFile(`logs/${req.params.crash_id}`, 'utf8' , (err, data) => {
+        if (err) {
+            console.error(err)
+            return
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.end(data);
+    });        
 });
 
 // API endpoints for crashes
@@ -22,6 +35,7 @@ app.post('/api/exceptions', function(req, res) {
             if (err) return console.log(err);
             console.log(`Crash saved as ${file_name} (${body.length} bytes)`);
         });
+        res.end({})
     });
 });
 
